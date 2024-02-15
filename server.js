@@ -17,6 +17,11 @@ connectDB();
 
 app.use(express.json());
 
+// logs for morgan
+const logsDir = path.join(__dirname, "logs");
+if (!fs.existsSync(logsDir)) {
+	fs.mkdirSync(logsDir);
+}
 const accessLogStream = fs.createWriteStream(path.join(__dirname, "logs", "access.log"), { flags: "a" });
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(morgan("tiny"));
