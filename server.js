@@ -29,7 +29,7 @@ app.use(morgan("tiny"));
 // Allow requests only from specified origins
 app.use(
 	cors({
-		origin: "http://localhost:3000", // Change to your React frontend URL
+		origin: ["http://localhost:3000", "https://tech-notes-dashboard.vercel.app"], // Change to your React frontend URL
 		credentials: true, // Allow sending cookies and other credentials
 	})
 );
